@@ -31,3 +31,22 @@ Mustache構文（二重の波括弧）を記述するとJavaScript式を記述�
 #### v-bindディレクティブ
 
 `v-bind:title="todo"` によって、li要素のtitle属性にtodoをバインドしている。
+
+
+### 複数のToDoを表示するまでを実装
+
+v-forディレクティブにより、複数の要素を反復して表示できる。
+
+v-forディレクティブ
+https://v3.ja.vuejs.org/guide/list.html
+
+> 配列に基づいて、アイテムのリストを描画するために、v-for ディレクティブを使用することができます。
+> v-for ディレクティブには、 item in items の形式の特別な構文が必要で、 items はソースデータの配列、 item は繰り返される配列要素のエイリアスです。
+
+key属性
+https://v3.ja.vuejs.org/guide/migration/key-attribute.html
+
+> 特別な属性である key はノードの ID を追跡するために Vue の仮想 DOM のアルゴリズムのヒントとして使用されます。
+
+keyは仮想DOMのノードを一意で見つけるやつと認識（多分 DOMツリー内でグローバル）
+
