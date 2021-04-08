@@ -63,3 +63,9 @@ https://v3.ja.vuejs.org/guide/migration/v-model.html
 data（状態）が変わるとリアクティブシステムが反応（再描画）みたいな認識
 
 Vue 2ではどうだったんだろう？？？
+
+### ボタンを実装
+
+`v-on:click="handleClick"` のように記述するとclickイベントが発火した時、methodsオプション内のhandleClickメソッドを呼び出す。
+
+この場合のthisは何を指すの？という話になった。
