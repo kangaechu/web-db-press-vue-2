@@ -2,7 +2,12 @@
   <input v-model="inputValue" />
   <button v-on:click="handleClick">ToDoを確認</button>
   <ul>
-    <li v-for="todo in todoItems" v-bind:key="todo.id">
+    <li
+      v-for="todo in todoItems"
+      v-bind:key="todo.id"
+      v-on:click="todo.done = !todo.done"
+    >
+      <span v-if="todo.done">✔️</span>
       {{ todo.text }}
     </li>
   </ul>
@@ -23,9 +28,10 @@ export default {
       // 入力をリストに追加
       this.todoItems.push({
         id: this.todoItems.length + 1,
+        done: false,
         text: this.inputValue,
       });
-      this.inputValue = ''
+      this.inputValue = "";
     },
   },
 };

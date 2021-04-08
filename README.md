@@ -78,3 +78,14 @@ inputタグに項目を入力し、ボタンをクリックするとToDoリス�
 2. バインドしているinputValueという変数に値が入る
 3. 状態が変わったのでリアクティブシステムが反応
 4. v-forの部分に差分があるので、そこだけ再描画（この時、v-for以下のliタグすべてなのか、liタグ１つだけなのか）
+
+## 操作機能を実装
+
+### 「完了」のチェック表示とクリックによる変更を実装
+
+`v-on:click="todo.done = !todo.done"` で `todo.done` のステータスを反転。JavaScriptを直接書けるのが面白い。
+`<span v-if="todo.done">✔️</span>` でチェックマークの表示を切り替えている
+
+[https://v3.ja.vuejs.org/guide/conditional.html](https://v3.ja.vuejs.org/guide/conditional.html)
+
+> とても頻繁に何かを切り替える必要があれば `v-show` を選び、条件が実行時に変更することがほとんどない場合は、`v-if` を選びます。
