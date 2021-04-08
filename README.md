@@ -50,3 +50,16 @@ https://v3.ja.vuejs.org/guide/migration/key-attribute.html
 
 keyは仮想DOMのノードを一意で見つけるやつと認識（多分 DOMツリー内でグローバル）
 
+## 入力フォームと追加ボタンを実装
+
+### 入力フォームを実装
+
+`v-model="プロパティ名"` と入力することにより、inputタグの入力内容をプロパティに反映できる。
+
+https://v3.ja.vuejs.org/guide/migration/v-model.html
+
+> Vue 3 では、双方向データバインディングの API が標準化され、混乱を減らし、開発者が v-model ディレクティブをより柔軟に使えるようになりました。
+
+data（状態）が変わるとリアクティブシステムが反応（再描画）みたいな認識
+
+Vue 2ではどうだったんだろう？？？
