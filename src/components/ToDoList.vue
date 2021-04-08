@@ -7,7 +7,7 @@
       v-for="todo in filteredTodoItems"
       v-bind:key="todo.id"
       class="todo-item"
-      v-bind:class="{'done': todo.done}"
+      v-bind:class="{ done: todo.done }"
       v-on:click="todo.done = !todo.done"
     >
       <span v-if="todo.done">✔️</span>
@@ -18,24 +18,35 @@
 <script>
 export default {
   data() {
+    const todoItems =  [
+        { id: 1, done: false, text: "Go out to sea" },
+        { id: 2, done: false, text: "Invite the first member" },
+      ],
+
     return {
       inputValue: "",
-      todoItems: [
-        { id: 1, text: "Go out to sea" },
-        { id: 2, text: "Invite the first member" },
-      ],
+      todoItems,
+      // filteredTodoItemsの初期値は、
+      // todoItemsと同じ配列を使用する
+      filteredTodoItems: todoItems,
       filterValue: "",
     };
   },
-  computed: {
-    filteredTodoItems() {
-      if (!this.filterValue) {
-        return this.todoItems;
-      }
-      return this.todoItems.filter((todo) => {
-        return todo.text.includes(this.filterValue)
-      });
-    },
+  watch: {
+      // filterValueの値の変更を監視し
+      // filteredTodoItemsを再計算する
+      filterValue() {
+        this.updateFilteredTodoItems()
+      },
+      // todoItemsの値の変更を監視し、
+      // filteredTodoItemsを再計算する
+      todoItems: {
+        handler() {
+          this.updateFilteredTodoItems()
+        },
+        // 深く監視することで配列要素の変更も監視する
+        deep: true
+      },
   },
   methods: {
     handleClick() {
@@ -47,13 +58,23 @@ export default {
       });
       this.inputValue = ""
     },
+    // filteredTodoItemsに
+    // 再計算した配列を与える
+    updateFilteredTodoItems() {
+      this.filteredTodoItems =
+        this.filterValue
+          ? this.todoItems.filter((todo) => 
+            todo.text.includes(this.this.filterValue)
+          )
+          : this.todoItems
+    }
   },
 };
 </script>
 <style>
 .todo-item.done {
-    /* 背景を緑色にする */
-    background-color: #3fb983;
-    color: #ffffff;
+  /* 背景を緑色にする */
+  background-color: #3fb983;
+  color: #ffffff;
 }
 </style>
