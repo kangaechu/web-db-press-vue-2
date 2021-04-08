@@ -1,8 +1,6 @@
 <template>
- <input v-model="inputValue">
- <button v-on:click="handleClick"> 
-     ToDoを確認
- </button>
+  <input v-model="inputValue" />
+  <button v-on:click="handleClick">ToDoを確認</button>
   <ul>
     <li v-for="todo in todoItems" v-bind:key="todo.id">
       {{ todo.text }}
@@ -13,7 +11,7 @@
 export default {
   data() {
     return {
-      inputValue: '',
+      inputValue: "",
       todoItems: [
         { id: 1, text: "Go out to sea" },
         { id: 2, text: "Invite the first member" },
@@ -21,11 +19,14 @@ export default {
     };
   },
   methods: {
-      handleClick() {
-          console.log(this)
-          // 入力内容をalertで表示する
-          alert(this.inputValue)
-      }
-  }
+    handleClick() {
+      // 入力をリストに追加
+      this.todoItems.push({
+        id: this.todoItems.length + 1,
+        text: this.inputValue,
+      });
+      this.inputValue = ''
+    },
+  },
 };
 </script>
