@@ -89,3 +89,15 @@ inputタグに項目を入力し、ボタンをクリックするとToDoリス�
 [https://v3.ja.vuejs.org/guide/conditional.html](https://v3.ja.vuejs.org/guide/conditional.html)
 
 > とても頻繁に何かを切り替える必要があれば `v-show` を選び、条件が実行時に変更することがほとんどない場合は、`v-if` を選びます。
+
+#### ToDoリストのフィルタ機能を実装
+
+`v-for` computedオプションで定義したメソッドにより、`filteredValue` の文字列を含む要素のみを返す。
+
+[https://v3.ja.vuejs.org/guide/reactivity-computed-watchers.html](https://v3.ja.vuejs.org/guide/reactivity-computed-watchers.html)
+
+```
+他の状態に依存した状態が必要となることがあります。Vue では、これをコンポーネントの算出プロパティとして処理します。
+```
+
+- 算出プロパティ： computed property の訳だと思われる

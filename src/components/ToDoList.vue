@@ -1,9 +1,10 @@
 <template>
   <input v-model="inputValue" />
   <button v-on:click="handleClick">ToDoを確認</button>
+  <input v-model="filterValue" placeholder="フィルタテキスト" />
   <ul>
     <li
-      v-for="todo in todoItems"
+      v-for="todo in filteredTodoItems"
       v-bind:key="todo.id"
       v-on:click="todo.done = !todo.done"
     >
@@ -21,7 +22,18 @@ export default {
         { id: 1, text: "Go out to sea" },
         { id: 2, text: "Invite the first member" },
       ],
+      filterValue: "",
     };
+  },
+  computed: {
+    filteredTodoItems() {
+      if (!this.filterValue) {
+        return this.todoItems;
+      }
+      return this.todoItems.filter((todo) => {
+        return todo.text.includes(this.filterValue)
+      });
+    },
   },
   methods: {
     handleClick() {
@@ -31,7 +43,7 @@ export default {
         done: false,
         text: this.inputValue,
       });
-      this.inputValue = "";
+      this.inputValue = ""
     },
   },
 };
