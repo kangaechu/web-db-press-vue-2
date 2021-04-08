@@ -1,6 +1,8 @@
 <template>
     <ul>
-        <li>{{ todo }}</li>
+        <li v-bind:title="todo">
+            {{ todo.slice(0, 10) + '...' }}
+        </li>
     </ul>
 </template>
 <script>

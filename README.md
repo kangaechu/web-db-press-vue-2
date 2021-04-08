@@ -26,3 +26,8 @@ ElmのTEAインスパイアの(FaceBook考案の)Fluxライク
 
 `data` に定義したプロパティを<template>内で参照できる。
 Mustache構文（二重の波括弧）を記述するとJavaScript式を記述できる。
+
+
+#### v-bindディレクティブ
+
+`v-bind:title="todo"` によって、li要素のtitle属性にtodoをバインドしている。
