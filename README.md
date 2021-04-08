@@ -96,8 +96,18 @@ inputタグに項目を入力し、ボタンをクリックするとToDoリス�
 
 [https://v3.ja.vuejs.org/guide/reactivity-computed-watchers.html](https://v3.ja.vuejs.org/guide/reactivity-computed-watchers.html)
 
-```
-他の状態に依存した状態が必要となることがあります。Vue では、これをコンポーネントの算出プロパティとして処理します。
-```
+
+> 他の状態に依存した状態が必要となることがあります。Vue では、これをコンポーネントの算出プロパティとして処理します。
 
 - 算出プロパティ： computed property の訳だと思われる
+
+## ToDOリストを装飾
+
+`v-bind:class="{'done': todo.done}"` により、`todo.done` が `true` の時に class `done` が追加され、緑背景のCSSが適用される。
+classの結合の考慮が入らないのは便利だけど、 `v-bind:class` は意味が取りづらい。
+
+
+[https://v3.ja.vuejs.org/guide/class-and-style.html](https://v3.ja.vuejs.org/guide/class-and-style.html)
+
+> 文字列の連結に手を出すのは煩わしく、エラーのもとです。そのため、Vue は v-bind が class と style と一緒に使われるとき、特別な拡張機能を提供します。
+
